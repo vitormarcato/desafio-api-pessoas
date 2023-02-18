@@ -4,13 +4,11 @@ import com.attornatus.apipessoas.models.DadosCadastroPessoa;
 import com.attornatus.apipessoas.models.DadosDetalhamentoPessoa;
 import com.attornatus.apipessoas.models.Pessoa;
 import com.attornatus.apipessoas.repositories.PessoaRepository;
+import com.attornatus.apipessoas.services.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
@@ -18,6 +16,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class PessoaController {
     @Autowired
     private PessoaRepository repository;
+    @Autowired
+    private PessoaService service;
 
     @PostMapping
     @Transactional
@@ -28,6 +28,13 @@ public class PessoaController {
         var uri = uriBuilder.path("/pessoas/{id}").buildAndExpand(pessoa.getId()).toUri();
 
         return ResponseEntity.created(uri).body(new DadosDetalhamentoPessoa(pessoa));
+    }
+
+    @PutMapping("/{pessoaId}/enderecos/{enderecoId}")
+    @Transactional
+    public ResponseEntity atribuirEnderecoParaPessoa(@PathVariable Long pessoaId, @PathVariable Long enderecoId){
+        var pessoa = service.atribuirEnderecoParaPessoa(pessoaId, enderecoId);
+        return ResponseEntity.ok(new DadosDetalhamentoPessoa(pessoa));
     }
 
 }
