@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Table(name = "tb_enderecos")
@@ -32,14 +33,14 @@ public class Endereco {
     private Boolean enderecoPrincipal;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "listaEnderecos")
-    private Set<Pessoa> pessoasNoEndereco;
+    @ManyToMany(mappedBy = "enderecos")
+    private Set<Pessoa> pessoasNoEndereco = new HashSet<>();
 
     public Endereco(DadosCadastroEndereco dados) {
         this.logradouro = dados.logradouro();
         this.cep = dados.cep();
         this.numero = dados.numero();
         this.cidade = dados.cidade();
-        this.enderecoPrincipal = true;
+        this.enderecoPrincipal = dados.enderecoPrincipal();
     }
 }

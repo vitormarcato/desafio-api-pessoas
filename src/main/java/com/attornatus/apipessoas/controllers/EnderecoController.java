@@ -1,14 +1,18 @@
 package com.attornatus.apipessoas.controllers;
 
 import com.attornatus.apipessoas.models.DadosCadastroEndereco;
+import com.attornatus.apipessoas.models.DadosDetalhamentoEndereco;
+import com.attornatus.apipessoas.models.DadosDetalhamentoPessoa;
 import com.attornatus.apipessoas.models.Endereco;
 import com.attornatus.apipessoas.repositories.EnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("enderecos")
@@ -18,8 +22,14 @@ public class EnderecoController {
 
     @PostMapping
     @Transactional
-    public void cadastrar(@RequestBody DadosCadastroEndereco dados) {
-        repository.save(new Endereco(dados));
+    public ResponseEntity cadastrar(@RequestBody DadosCadastroEndereco dados, UriComponentsBuilder uriBuilder) {
+        Endereco endereco = new Endereco(dados);
+        repository.save(endereco);
+
+        var uri = uriBuilder.path("/enderecos/{id}").buildAndExpand(endereco.getId()).toUri();
+
+        return ResponseEntity.created(uri).body(new DadosDetalhamentoEndereco(endereco));
     }
+
 
 }
