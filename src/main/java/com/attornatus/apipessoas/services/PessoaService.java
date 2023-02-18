@@ -7,8 +7,6 @@ import com.attornatus.apipessoas.repositories.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Set;
-
 @Service
 public class PessoaService {
 
@@ -22,12 +20,7 @@ public class PessoaService {
         Pessoa pessoa = pessoaRepository.findById(pessoaId).get();
         Endereco endereco = enderecoRepository.findById(enderecoId).get();
         pessoa.getEnderecos().add(endereco);
-        endereco.getPessoasNoEndereco().add(pessoa);
-
-        //Set<Endereco> enderecosSet = pessoa.getEnderecos();
-        //enderecosSet.add(endereco);
         return pessoaRepository.save(pessoa);
     }
-
 
 }

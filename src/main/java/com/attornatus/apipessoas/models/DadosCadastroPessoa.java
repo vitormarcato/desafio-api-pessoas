@@ -8,6 +8,6 @@ public record DadosCadastroPessoa(
         String nome,
         LocalDate dataNascimento,
 
-        DadosCadastroEndereco endereco) {
+        DadosCadastroEndereco enderecos) {
 
 }

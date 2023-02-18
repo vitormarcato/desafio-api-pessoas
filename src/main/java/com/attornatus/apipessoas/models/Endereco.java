@@ -42,5 +42,6 @@ public class Endereco {
         this.numero = dados.numero();
         this.cidade = dados.cidade();
         this.enderecoPrincipal = dados.enderecoPrincipal();
+
     }
 }

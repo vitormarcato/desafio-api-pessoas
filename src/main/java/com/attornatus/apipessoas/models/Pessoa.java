@@ -26,7 +26,7 @@ public class Pessoa {
     private String nome;
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataNascimento;
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable (name = "tb_pessoas_enderecos",
             joinColumns = @JoinColumn(name = "pessoa_id"),
             inverseJoinColumns = @JoinColumn(name = "endereco_id"))

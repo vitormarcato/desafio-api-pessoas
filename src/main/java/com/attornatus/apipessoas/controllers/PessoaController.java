@@ -11,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("pessoas")
 public class PessoaController {
@@ -32,15 +34,21 @@ public class PessoaController {
 
     @PutMapping("/{pessoaId}/enderecos/{enderecoId}")
     @Transactional
-    public ResponseEntity atribuirEnderecoParaPessoa(@PathVariable Long pessoaId, @PathVariable Long enderecoId){
+    public ResponseEntity atribuirEnderecoParaPessoa(@PathVariable Long pessoaId, @PathVariable Long enderecoId) {
         var pessoa = service.atribuirEnderecoParaPessoa(pessoaId, enderecoId);
         return ResponseEntity.ok(new DadosDetalhamentoPessoa(pessoa));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity detalhar (@PathVariable Long id){
+    public ResponseEntity detalhar(@PathVariable Long id) {
         var pessoa = repository.getReferenceById(id);
         return ResponseEntity.ok(new DadosDetalhamentoPessoa(pessoa));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<DadosDetalhamentoPessoa>> listar() {
+        var listaPessoas = repository.findAll().stream().map(DadosDetalhamentoPessoa::new).toList();
+        return ResponseEntity.ok(listaPessoas);
     }
 
 
