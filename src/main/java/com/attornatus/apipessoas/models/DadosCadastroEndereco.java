@@ -18,4 +18,3 @@ public record DadosCadastroEndereco(
         Boolean enderecoPrincipal) {
 }
 
-
