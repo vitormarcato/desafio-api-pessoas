@@ -1,14 +1,18 @@
 package com.attornatus.apipessoas.models;
 
-public record DadosAtualizacaoEndereco(Long id,
+import jakarta.validation.constraints.NotNull;
 
-                                       String logradouro,
+public record DadosAtualizacaoEndereco(
+        @NotNull
+        Long id,
 
-                                       String cep,
+        String logradouro,
 
-                                       String numero,
+        String cep,
 
-                                       String cidade,
+        String numero,
 
-                                       Boolean enderecoPrincipal) {
+        String cidade,
+
+        Boolean enderecoPrincipal) {
 }

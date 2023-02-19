@@ -24,7 +24,7 @@ public class Pessoa {
     private Long id;
 
     private String nome;
-    @JsonFormat(pattern = "dd/MM/yyyy")
+
     private LocalDate dataNascimento;
     @ManyToMany
     @JoinTable (name = "tb_pessoas_enderecos",

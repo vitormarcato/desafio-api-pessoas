@@ -2,6 +2,7 @@ package com.attornatus.apipessoas.controllers;
 
 import com.attornatus.apipessoas.models.*;
 import com.attornatus.apipessoas.repositories.EnderecoRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +17,7 @@ public class EnderecoController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity cadastrar(@RequestBody DadosCadastroEndereco dados, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroEndereco dados, UriComponentsBuilder uriBuilder) {
         Endereco endereco = new Endereco(dados);
         repository.save(endereco);
 
