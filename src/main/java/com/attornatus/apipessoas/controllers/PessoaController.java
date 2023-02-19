@@ -1,5 +1,6 @@
 package com.attornatus.apipessoas.controllers;
 
+import com.attornatus.apipessoas.models.DadosAtualizacaoPessoa;
 import com.attornatus.apipessoas.models.DadosCadastroPessoa;
 import com.attornatus.apipessoas.models.DadosDetalhamentoPessoa;
 import com.attornatus.apipessoas.models.Pessoa;
@@ -51,5 +52,12 @@ public class PessoaController {
         return ResponseEntity.ok(listaPessoas);
     }
 
+    @PutMapping
+    @Transactional
+    public ResponseEntity atualizar(@RequestBody DadosAtualizacaoPessoa dados){
+        var pessoa = repository.getReferenceById(dados.id());
+        pessoa.atualizarInformacoes(dados);
 
+        return ResponseEntity.ok(new DadosDetalhamentoPessoa(pessoa));
+    }
 }

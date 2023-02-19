@@ -26,7 +26,7 @@ public class Pessoa {
     private String nome;
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataNascimento;
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany
     @JoinTable (name = "tb_pessoas_enderecos",
             joinColumns = @JoinColumn(name = "pessoa_id"),
             inverseJoinColumns = @JoinColumn(name = "endereco_id"))
@@ -36,5 +36,15 @@ public class Pessoa {
     public Pessoa(DadosCadastroPessoa dados) {
         this.nome = dados.nome();
         this.dataNascimento = dados.dataNascimento();
+    }
+
+    public void atualizarInformacoes(DadosAtualizacaoPessoa dados) {
+
+        if (dados.nome() != null) {
+            this.nome = dados.nome();
+        }
+        if (dados.dataNascimento() != null) {
+            this.dataNascimento = dados.dataNascimento();
+        }
     }
 }
