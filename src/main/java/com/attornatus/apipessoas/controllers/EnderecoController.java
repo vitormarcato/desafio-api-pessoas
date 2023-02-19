@@ -39,4 +39,11 @@ public class EnderecoController {
         return ResponseEntity.ok(new DadosDetalhamentoEndereco(endereco));
     }
 
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity excluir(@PathVariable Long id) {
+        repository.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
