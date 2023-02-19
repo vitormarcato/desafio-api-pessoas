@@ -1,8 +1,6 @@
 package com.attornatus.apipessoas.controllers;
 
-import com.attornatus.apipessoas.models.DadosCadastroEndereco;
-import com.attornatus.apipessoas.models.DadosDetalhamentoEndereco;
-import com.attornatus.apipessoas.models.Endereco;
+import com.attornatus.apipessoas.models.*;
 import com.attornatus.apipessoas.repositories.EnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +27,15 @@ public class EnderecoController {
     @GetMapping("/{id}")
     public ResponseEntity detalhar(@PathVariable Long id) {
         var endereco = repository.getReferenceById(id);
+        return ResponseEntity.ok(new DadosDetalhamentoEndereco(endereco));
+    }
+
+    @PutMapping
+    @Transactional
+    public ResponseEntity atualizar(@RequestBody DadosAtualizacaoEndereco dados){
+        var endereco = repository.getReferenceById(dados.id());
+        endereco.atualizarInformacoes(dados);
+
         return ResponseEntity.ok(new DadosDetalhamentoEndereco(endereco));
     }
 

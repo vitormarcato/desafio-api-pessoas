@@ -44,4 +44,22 @@ public class Endereco {
         this.enderecoPrincipal = dados.enderecoPrincipal();
 
     }
+
+    public void atualizarInformacoes(DadosAtualizacaoEndereco dados){
+        if (dados.logradouro() != null) {
+            this.logradouro = dados.logradouro();
+        }
+        if (dados.cep() != null) {
+            this.cep = dados.cep();
+        }
+        if (dados.numero() != null) {
+            this.numero = dados.numero();
+        }
+        if (dados.cidade() != null) {
+            this.cidade = dados.cidade();
+        }
+        if (dados.enderecoPrincipal() != null) {
+            this.enderecoPrincipal = dados.enderecoPrincipal();
+        }
+    }
 }
