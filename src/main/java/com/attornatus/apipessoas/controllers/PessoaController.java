@@ -60,4 +60,11 @@ public class PessoaController {
 
         return ResponseEntity.ok(new DadosDetalhamentoPessoa(pessoa));
     }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity excluir(@PathVariable Long id) {
+        repository.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
 }
