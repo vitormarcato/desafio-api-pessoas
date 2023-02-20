@@ -24,18 +24,14 @@ public class PessoaController {
     private PessoaService service;
 
     @PostMapping
-    @Transactional
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroPessoa dados, UriComponentsBuilder uriBuilder) {
         Pessoa pessoa = new Pessoa(dados);
-        repository.save(pessoa);
-
+        service.cadastrarPessoa(pessoa);
         var uri = uriBuilder.path("/pessoas/{id}").buildAndExpand(pessoa.getId()).toUri();
-
         return ResponseEntity.created(uri).body(new DadosDetalhamentoPessoa(pessoa));
     }
 
     @PutMapping("/{pessoaId}/enderecos/{enderecoId}")
-    @Transactional
     public ResponseEntity atribuirEnderecoParaPessoa(@PathVariable Long pessoaId, @PathVariable Long enderecoId) {
         var pessoa = service.atribuirEnderecoParaPessoa(pessoaId, enderecoId);
         return ResponseEntity.ok(new DadosDetalhamentoPessoa(pessoa));
@@ -43,29 +39,24 @@ public class PessoaController {
 
     @GetMapping("/{id}")
     public ResponseEntity detalhar(@PathVariable Long id) {
-        var pessoa = repository.findById(id).get();
+        var pessoa = service.findById(id).get();
         return ResponseEntity.ok(new DadosDetalhamentoPessoa(pessoa));
     }
 
     @GetMapping
     public ResponseEntity<List<DadosDetalhamentoPessoa>> listar() {
-        var listaPessoas = repository.findAll().stream().map(DadosDetalhamentoPessoa::new).toList();
-        return ResponseEntity.ok(listaPessoas);
+        return ResponseEntity.ok(service.listar());
     }
 
     @PutMapping
-    @Transactional
     public ResponseEntity atualizar(@RequestBody DadosAtualizacaoPessoa dados) {
-        var pessoa = repository.getReferenceById(dados.id());
-        pessoa.atualizarInformacoes(dados);
-
+        var pessoa = service.atualizarInformacoes(dados);
         return ResponseEntity.ok(new DadosDetalhamentoPessoa(pessoa));
     }
 
     @DeleteMapping("/{id}")
-    @Transactional
     public ResponseEntity excluir(@PathVariable Long id) {
-        repository.deleteById(id);
+        service.excluir(id);
         return ResponseEntity.noContent().build();
     }
 }

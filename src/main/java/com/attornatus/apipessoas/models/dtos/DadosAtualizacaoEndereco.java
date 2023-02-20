@@ -1,4 +1,4 @@
-package com.attornatus.apipessoas.models;
+package com.attornatus.apipessoas.models.dtos;
 
 import jakarta.validation.constraints.NotNull;
 
@@ -12,7 +12,5 @@ public record DadosAtualizacaoEndereco(
 
         String numero,
 
-        String cidade,
-
-        Boolean enderecoPrincipal) {
+        String cidade) {
 }

@@ -1,7 +1,6 @@
-package com.attornatus.apipessoas.models;
+package com.attornatus.apipessoas.models.dtos;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 public record DadosCadastroEndereco(
@@ -13,8 +12,7 @@ public record DadosCadastroEndereco(
         @NotBlank
         String numero,
         @NotBlank
-        String cidade,
-        @NotNull
-        Boolean enderecoPrincipal) {
+        String cidade
+) {
 }
 

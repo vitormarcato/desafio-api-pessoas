@@ -1,4 +1,4 @@
-package com.attornatus.apipessoas.models;
+package com.attornatus.apipessoas.models.dtos;
 
 import jakarta.validation.constraints.NotNull;
 
@@ -8,6 +8,7 @@ public record DadosAtualizacaoPessoa(
         @NotNull
         Long id,
         String nome,
-        LocalDate dataNascimento) {
+        LocalDate nascimento,
+        Long principal) {
 
 }
