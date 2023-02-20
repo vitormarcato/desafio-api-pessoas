@@ -1,9 +1,9 @@
 package com.attornatus.apipessoas.controllers;
 
-import com.attornatus.apipessoas.models.DadosAtualizacaoPessoa;
-import com.attornatus.apipessoas.models.DadosCadastroPessoa;
-import com.attornatus.apipessoas.models.DadosDetalhamentoPessoa;
 import com.attornatus.apipessoas.models.Pessoa;
+import com.attornatus.apipessoas.models.dtos.DadosAtualizacaoPessoa;
+import com.attornatus.apipessoas.models.dtos.DadosCadastroPessoa;
+import com.attornatus.apipessoas.models.dtos.DadosDetalhamentoPessoa;
 import com.attornatus.apipessoas.repositories.PessoaRepository;
 import com.attornatus.apipessoas.services.PessoaService;
 import jakarta.validation.Valid;
@@ -43,7 +43,7 @@ public class PessoaController {
 
     @GetMapping("/{id}")
     public ResponseEntity detalhar(@PathVariable Long id) {
-        var pessoa = repository.getReferenceById(id);
+        var pessoa = repository.findById(id).get();
         return ResponseEntity.ok(new DadosDetalhamentoPessoa(pessoa));
     }
 
@@ -55,7 +55,7 @@ public class PessoaController {
 
     @PutMapping
     @Transactional
-    public ResponseEntity atualizar(@RequestBody DadosAtualizacaoPessoa dados){
+    public ResponseEntity atualizar(@RequestBody DadosAtualizacaoPessoa dados) {
         var pessoa = repository.getReferenceById(dados.id());
         pessoa.atualizarInformacoes(dados);
 
