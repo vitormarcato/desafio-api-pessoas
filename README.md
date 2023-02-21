@@ -43,11 +43,12 @@ Requisitos
 ---
 
 ### Arquitetura:
-![image](https://user-images.githubusercontent.com/60930603/220408353-20cabed0-3d22-4262-a5e8-335d67cd9466.png)
+![image](https://user-images.githubusercontent.com/60930603/220412598-2a4a8242-206b-4f40-8ffb-7fda07f1e869.png)
 
 
 ### Relacionamento das entidades Many-To-Many:
-![image](https://user-images.githubusercontent.com/60930603/220412598-2a4a8242-206b-4f40-8ffb-7fda07f1e869.png)
+![Diagrama ER](https://user-images.githubusercontent.com/60930603/220413007-a6c507a8-136c-4b82-8de7-f1657ebccbc5.png)
+
 
 ### Tecnologias
 ---
