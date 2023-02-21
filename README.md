@@ -47,9 +47,7 @@ Requisitos
 
 
 ### Relacionamento das entidades Many-To-Many:
-
-![Diagrama ER](https://user-images.githubusercontent.com/60930603/220407696-dfc89809-8588-4480-b24e-a96399b09714.png)
-
+![image](https://user-images.githubusercontent.com/60930603/220412598-2a4a8242-206b-4f40-8ffb-7fda07f1e869.png)
 
 ### Tecnologias
 ---
