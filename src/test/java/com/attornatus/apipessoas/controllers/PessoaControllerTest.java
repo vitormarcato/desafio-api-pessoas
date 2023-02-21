@@ -82,7 +82,7 @@ class PessoaControllerTest {
 
     @Test
     @DisplayName("Deve devolver código http 200 quando informacoes estao validas")
-//    void detalharRetornaDadosCompletosDaPessoaComCodigoHttp200() throws Exception {
+    void detalharRetornaDadosCompletosDaPessoaComCodigoHttp200() throws Exception {
 //
 //        var listaPessoa = new DadosListagemPessoa(null, "pessoa", data,  dadosListagemPessoaJson, 1);
 //
@@ -96,7 +96,7 @@ class PessoaControllerTest {
 //        var jsonEsperado = dadosDetalhamentoPessoaJson.write(dadosDetalhamento).getJson();
 //
 //
-//    }
+    }
 
     @Test
     void listar() {
