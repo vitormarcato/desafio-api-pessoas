@@ -1,7 +1,7 @@
-package com.attornatus.apipessoas.models.dtos;
+package com.attornatus.apipessoas.dtos;
 
-import com.attornatus.apipessoas.models.Endereco;
-import com.attornatus.apipessoas.models.Pessoa;
+import com.attornatus.apipessoas.entities.Endereco;
+import com.attornatus.apipessoas.entities.Pessoa;
 
 import java.util.Set;
 

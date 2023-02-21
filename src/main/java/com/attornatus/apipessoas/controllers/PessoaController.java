@@ -1,15 +1,14 @@
 package com.attornatus.apipessoas.controllers;
 
-import com.attornatus.apipessoas.models.Pessoa;
-import com.attornatus.apipessoas.models.dtos.DadosAtualizacaoPessoa;
-import com.attornatus.apipessoas.models.dtos.DadosCadastroPessoa;
-import com.attornatus.apipessoas.models.dtos.DadosDetalhamentoPessoa;
-import com.attornatus.apipessoas.repositories.PessoaRepository;
+import com.attornatus.apipessoas.dtos.DadosAtualizacaoPessoa;
+import com.attornatus.apipessoas.dtos.DadosCadastroPessoa;
+import com.attornatus.apipessoas.dtos.DadosDetalhamentoPessoa;
+import com.attornatus.apipessoas.dtos.DadosListagemPessoa;
+import com.attornatus.apipessoas.entities.Pessoa;
 import com.attornatus.apipessoas.services.PessoaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -18,10 +17,13 @@ import java.util.List;
 @RestController
 @RequestMapping("pessoas")
 public class PessoaController {
-    @Autowired
-    private PessoaRepository repository;
-    @Autowired
+
     private PessoaService service;
+
+    @Autowired
+    public PessoaController(PessoaService service) {
+        this.service = service;
+    }
 
     @PostMapping
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroPessoa dados, UriComponentsBuilder uriBuilder) {
@@ -34,17 +36,17 @@ public class PessoaController {
     @PutMapping("/{pessoaId}/enderecos/{enderecoId}")
     public ResponseEntity atribuirEnderecoParaPessoa(@PathVariable Long pessoaId, @PathVariable Long enderecoId) {
         var pessoa = service.atribuirEnderecoParaPessoa(pessoaId, enderecoId);
-        return ResponseEntity.ok(new DadosDetalhamentoPessoa(pessoa));
+        return ResponseEntity.ok(new DadosListagemPessoa(pessoa));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity detalhar(@PathVariable Long id) {
         var pessoa = service.findById(id).get();
-        return ResponseEntity.ok(new DadosDetalhamentoPessoa(pessoa));
+        return ResponseEntity.ok(new DadosListagemPessoa(pessoa));
     }
 
     @GetMapping
-    public ResponseEntity<List<DadosDetalhamentoPessoa>> listar() {
+    public ResponseEntity<List<DadosListagemPessoa>> listar() {
         return ResponseEntity.ok(service.listar());
     }
 

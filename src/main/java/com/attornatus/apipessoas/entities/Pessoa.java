@@ -1,6 +1,6 @@
-package com.attornatus.apipessoas.models;
+package com.attornatus.apipessoas.entities;
 
-import com.attornatus.apipessoas.models.dtos.DadosCadastroPessoa;
+import com.attornatus.apipessoas.dtos.DadosCadastroPessoa;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

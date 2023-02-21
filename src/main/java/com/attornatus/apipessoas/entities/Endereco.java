@@ -1,7 +1,6 @@
-package com.attornatus.apipessoas.models;
+package com.attornatus.apipessoas.entities;
 
-import com.attornatus.apipessoas.models.dtos.DadosAtualizacaoEndereco;
-import com.attornatus.apipessoas.models.dtos.DadosCadastroEndereco;
+import com.attornatus.apipessoas.dtos.DadosCadastroEndereco;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,10 +1,9 @@
 package com.attornatus.apipessoas.controllers;
 
-import com.attornatus.apipessoas.models.Endereco;
-import com.attornatus.apipessoas.models.dtos.DadosAtualizacaoEndereco;
-import com.attornatus.apipessoas.models.dtos.DadosCadastroEndereco;
-import com.attornatus.apipessoas.models.dtos.DadosDetalhamentoEndereco;
-import com.attornatus.apipessoas.repositories.EnderecoRepository;
+import com.attornatus.apipessoas.dtos.DadosAtualizacaoEndereco;
+import com.attornatus.apipessoas.dtos.DadosCadastroEndereco;
+import com.attornatus.apipessoas.dtos.DadosDetalhamentoEndereco;
+import com.attornatus.apipessoas.entities.Endereco;
 import com.attornatus.apipessoas.services.EnderecoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +14,13 @@ import org.springframework.web.util.UriComponentsBuilder;
 @RestController
 @RequestMapping("enderecos")
 public class EnderecoController {
-    @Autowired
-    private EnderecoRepository repository;
-    @Autowired
+
     private EnderecoService service;
+
+    @Autowired
+    public EnderecoController(EnderecoService service) {
+        this.service = service;
+    }
 
     @PostMapping
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroEndereco dados, UriComponentsBuilder uriBuilder) {

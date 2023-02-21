@@ -1,4 +1,4 @@
-package com.attornatus.apipessoas.models.dtos;
+package com.attornatus.apipessoas.dtos;
 
 import jakarta.validation.constraints.NotNull;
 

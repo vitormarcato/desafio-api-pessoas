@@ -1,9 +1,9 @@
 package com.attornatus.apipessoas.services;
 
-import com.attornatus.apipessoas.models.Endereco;
-import com.attornatus.apipessoas.models.Pessoa;
-import com.attornatus.apipessoas.models.dtos.DadosAtualizacaoPessoa;
-import com.attornatus.apipessoas.models.dtos.DadosDetalhamentoPessoa;
+import com.attornatus.apipessoas.dtos.DadosAtualizacaoPessoa;
+import com.attornatus.apipessoas.dtos.DadosListagemPessoa;
+import com.attornatus.apipessoas.entities.Endereco;
+import com.attornatus.apipessoas.entities.Pessoa;
 import com.attornatus.apipessoas.repositories.EnderecoRepository;
 import com.attornatus.apipessoas.repositories.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +31,8 @@ public class PessoaService {
         return pessoaRepository.findById(id);
     }
 
-    public List<DadosDetalhamentoPessoa> listar() {
-        return pessoaRepository.findAll().stream().map(DadosDetalhamentoPessoa::new).toList();
+    public List<DadosListagemPessoa> listar() {
+        return pessoaRepository.findAll().stream().map(DadosListagemPessoa::new).toList();
     }
 
     @Transactional

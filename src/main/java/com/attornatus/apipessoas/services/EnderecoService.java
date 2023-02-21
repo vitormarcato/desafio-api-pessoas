@@ -1,8 +1,8 @@
 package com.attornatus.apipessoas.services;
 
-import com.attornatus.apipessoas.models.Endereco;
-import com.attornatus.apipessoas.models.dtos.DadosAtualizacaoEndereco;
-import com.attornatus.apipessoas.models.dtos.DadosDetalhamentoEndereco;
+import com.attornatus.apipessoas.dtos.DadosAtualizacaoEndereco;
+import com.attornatus.apipessoas.dtos.DadosDetalhamentoEndereco;
+import com.attornatus.apipessoas.entities.Endereco;
 import com.attornatus.apipessoas.repositories.EnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
