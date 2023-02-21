@@ -2,7 +2,7 @@
 
 Uma API simples, usando Spring Boot, para gerenciar Pessoas.
 
-![](https://giphy.com/embed/giDUrT9SAdjwB9rsJu.gif)
+![](https://media.giphy.com/media/giDUrT9SAdjwB9rsJu/giphy.gif)
 
 ## Objetivo
 O objetivo é identificar os conhecimentos quanto às tecnologias utilizadas no cotidiano de desenvolvimento de uma equipe Back-end.
