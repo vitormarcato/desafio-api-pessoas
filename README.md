@@ -102,10 +102,13 @@ http://localhost:8080/swagger-ui/index.html#/
 ## Funcionalidades 
 
 **POST Criar Pessoa**
-``` URL
+
+Parâmetros
+```
  http://localhost:8080/pessoas
 ```
 
+Request Body - Json
 ```json
 {
     "nome":"alberto",
@@ -113,9 +116,12 @@ http://localhost:8080/swagger-ui/index.html#/
 }
 ```
 **PUT Editar uma Pessoa**  (é possível informar qual endereço é o principal)
+
+Parâmetros
 ```
 http://localhost:8080/pessoas
 ```
+Request Body - Json
 ```json
 {
         "id": 1,
@@ -125,31 +131,41 @@ http://localhost:8080/pessoas
 }
 ```
 **PUT Atribuir Endereco Para Pessoa** (permite atribuir um endereco cadastrado à uma pessoa já cadastrada)
+
+Parâmetros
 ```
 http://localhost:8080/pessoas/{id_pessoa}/enderecos/{id_endereco}
 ```
 
 **GET Consultar uma Pessoa**  
+
+Parâmetros
 ```
 http://localhost:8080/pessoas/{id}
 ```
 
 
 **GET Listar pessoas e enderecos da pessoa**  
+
+Parâmetros
 ```
 http://localhost:8080/pessoas
 ```
 
 **DELETE Excluir pessoa**  
+
+Parâmetros
 ```
 http://localhost:8080/pessoas/{id}
 ```
 
 **POST Criar endereco**  
+
+Parâmetros
 ```
 http://localhost:8080/enderecos
 ```
-
+Request Body - Json
 ```json
 {
         "logradouro":"rua 1",
@@ -159,6 +175,8 @@ http://localhost:8080/enderecos
 }
 ```
 **DELETE Excluir endereco**  
+
+Parâmetros
 ```
 http://localhost:8080/enderecos/{id}
 ```
