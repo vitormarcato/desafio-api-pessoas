@@ -89,6 +89,8 @@ Requisitos
   
   - H2 (Banco de dados Relacional)  
 
+## Deploy
+Deploy da aplicação feita na Amazon Web Services (EC2)
 
 ## Documentação 
 
