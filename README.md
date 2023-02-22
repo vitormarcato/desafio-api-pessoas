@@ -109,7 +109,7 @@ git clone https://github.com/vitormarcato/desafio-api-pessoas.git
 ```
 ou fazer download do .zip file
   		  
-2. Na pasta do projeto "desafio-api-pessoas" faça o build utilizando o macven: 
+2. Na pasta do projeto "desafio-api-pessoas" faça o build utilizando o maven: 
 
   ```bash
 mvn clean package
