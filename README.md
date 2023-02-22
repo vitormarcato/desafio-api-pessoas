@@ -3,6 +3,8 @@
 Uma API simples, usando Spring Boot, para gerenciar Pessoas.
 </div>
 
+---
+
 ![](https://media.giphy.com/media/giDUrT9SAdjwB9rsJu/giphy.gif#vitrinedev)
 
 ## Objetivo
@@ -223,7 +225,7 @@ http://localhost:8080/enderecos/{id}
 | :sparkles: Nome        | **Desafio Back-End - API Pessoas**
 | :label: Tecnologias | java, Spring Boot, Maven, Postman, H2, AWS EC2, JPA-Hibernate, Lombok, JUnit, Mockito, Bean Validation
 | :rocket: URL         | Veja como executar no link: [**Executar**](#run)
-| :fire: Desafio     | https://url-do-desafio.com.br
+| :fire: Desafio     | Veja no link: [**Sobre**](#sobre)
 
 
 ---
