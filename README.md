@@ -79,7 +79,7 @@ Requisitos
 
     - Lombok
 
-    - Mckito
+    - Mockito
 
     - JUnit
   
@@ -91,6 +91,35 @@ Requisitos
 
 ## Deploy
 Deploy da aplicação feita na Amazon Web Services (EC2)
+
+---
+
+### Dependencias 
+
+Java 17
+
+Maven 3.9.0
+
+## Executar em Máquina Local
+
+1. Clonar o repositório
+  
+  ```bash
+git clone https://github.com/vitormarcato/desafio-api-pessoas.git
+```
+ou fazer download do .zip file
+  		  
+2. Na pasta do projeto "desafio-api-pessoas" faça o build utilizando o macven: 
+
+  ```bash
+mvn clean package
+```
+
+3.  Na sequência, na pasta /target execute o arquivo .jar:
+  
+  ```bash
+java -jar api-pessoas-0.0.1-SNAPSHOT.jar
+```
 
 ## Documentação 
 
