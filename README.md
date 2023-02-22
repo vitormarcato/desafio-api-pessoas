@@ -218,7 +218,7 @@ http://localhost:8080/enderecos/{id}
 ```
 
 ---
-# VitrineDev - Alura
+## VitrineDev - Alura
 ---
 | :placard: Vitrine.Dev | https://cursos.alura.com.br/vitrinedev/vitormarcato     |
 | -------------  | --- |
@@ -227,6 +227,16 @@ http://localhost:8080/enderecos/{id}
 | :rocket: URL         | Veja como executar no link: [**Executar**](#run)
 | :fire: Desafio     | Veja no link: [**Sobre**](#sobre)
 
+---
+### Qualidade de código
+
+1.	Durante a implementação de uma nova funcionalidade de software solicitada, quais critérios você avalia e implementa para garantia de qualidade de software?
+
+Na minha opinião, a fase do planejamento é muito importante para garantir a qualidade de software ao implementar uma nova funcionalidade, em especial o levantamento e análise dos requisitos que é fundamental nesse processo. Além disso, questões como confiabilidade, usabilidade, manutenção, segurança, testes e satisfação do cliente devem ser considerados e avaliados.
+
+2.	Em qual etapa da implementação você considera a qualidade de software?
+
+A qualidade de software é percebida de diversas maneiras e de formas diferentes pelas pessoas. Na minha opinião a qualidade de software deve ser considerada em todas as etapas do ciclo de vida de um software, desde o início do projeto com o levantamento de requisitos e regras de negócio, passando por boas práticas no desenvolvimento do código fonte e também pelas entregas até chegar na manutenção do sistema. Importante comentar que garantir a qualidade de software em um projeto é uma maneira de diminuir custos.
 
 ---
 
